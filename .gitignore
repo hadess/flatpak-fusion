@@ -1,0 +1,5 @@
+.xdg-app-builder
+app
+repo
+*.xdgapp
+io.mpv.app.json

@@ -1,0 +1,132 @@
+{
+    "app-id": "io.mpv.app",
+    "runtime": "org.freedesktop.Platform",
+    "runtime-version": "1.4",
+    "sdk": "org.freedesktop.Sdk",
+    "rename-desktop-file": "mpv.desktop",
+    "rename-icon": "mpv",
+    "command": "mpv",
+    "separate-locales": false,
+    "finish-args": [
+        /* X11 + XShm access */
+        "--share=ipc", "--socket=x11",
+        /* Wayland access */
+        "--socket=wayland",
+        /* OpenGL access */
+        "--device=dri",
+        /* Needs to talk to the network: */
+        "--share=network",
+        /* Online accounts support */
+        "--talk-name=org.gnome.OnlineAccounts",
+        /* Tracker */
+        "--talk-name=org.freedesktop.Tracker1",
+        /* XXX This sucks */
+        "--filesystem=home",
+        /* Avahi */
+        "--system-talk-name=org.freedesktop.Avahi",
+        /* DLNA server */
+        "--talk-name=com.intel.dleyna-server",
+        /* Play sounds */
+        "--socket=pulseaudio",
+        /* Browse user's Videos directory */
+        "--filesystem=xdg-videos",
+        /* Browse gvfs */
+        "--talk-name=org.gtk.vfs", "--talk-name=org.gtk.vfs.*",
+        /* Needed for dconf to work */
+        "--filesystem=xdg-run/dconf", "--filesystem=~/.config/dconf:ro",
+        "--talk-name=ca.desrt.dconf", "--env=DCONF_USER_CONFIG_DIR=.config/dconf",
+        /* screensaver plugin */
+        "--talk-name=org.gnome.ScreenSaver",
+        /* screenshot plugin */
+        "--talk-name=org.gnome.Shell",
+        /* save-file plugin */
+        "--talk-name=org.gnome.Nautilus",
+        /* media-player-keys plugin */
+        "--talk-name=org.gnome.SettingsDaemon",
+        /* im-status plugin */
+        "--talk-name=org.gnome.SessionManager"
+    ],
+    "build-options" : {
+        "cflags": "-O2 -g",
+        "cxxflags": "-O2 -g"
+    },
+    "cleanup": [ "/include", "/share/bash-completion", "/lib/pkgconfig/", "/lib/*.a", "/lib/*.la", "/bin/av*", "/bin/fribidi", "/bin/*asm" ],
+    "modules": [
+        {
+            "name": "yasm",
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "http://www.tortall.net/projects/yasm/releases/yasm-1.3.0.tar.gz",
+                    "sha256": "3dce6601b495f5b3d45b59f7d2492a340ee7e84b5beca17e48f862502bd5603f"
+                }
+            ]
+        },
+        {
+            "name": "fribidi",
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "http://fribidi.org/download/fribidi-0.19.7.tar.bz2",
+                    "sha256": "08222a6212bbc2276a2d55c3bf370109ae4a35b689acbc66571ad2a670595a8e"
+                }
+            ]
+        },
+        {
+            "name": "libass",
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/libass/libass/releases/download/0.13.1/libass-0.13.1.tar.xz",
+                    "sha256": "4aa36b1876a61cab46fc9284fee84224b9e2840fe7b3e63d96a8d32574343fe7"
+                }
+            ]
+        },
+        {
+            "name": "libav",
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://libav.org/releases/libav-11.6.tar.xz",
+                    "sha256": "542f30e4266d2d2226e681b888bc718c995f5438f2db66a9a27d581243d27aed"
+                }
+            ]
+        },
+        {
+            "name": "mpv",
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/mpv-player/mpv/archive/v@VERSION@.tar.gz",
+                    "sha256": "602cd2b0f5fc7e43473234fbb96e3f7bbb6418f15eb8fa720d9433cce31eba6e"
+                },
+                /* Issue 146 */
+                {
+                    "type": "file",
+                    "url": "https://waf.io/waf-1.8.12",
+                    "sha256": "01bf2beab2106d1558800c8709bc2c8e496d3da4a2ca343fe091f22fca60c98b",
+                    "dest-filename": "waf"
+                },
+                {
+                    "type": "file",
+                    "path": "waf-1.8.12",
+                    "dest-filename": "waf"
+                },
+                {
+                    "type": "file",
+                    "path": "mpv-configure",
+                    "dest-filename": "configure"
+                },
+                {
+                    "type": "file",
+                    "path": "mpv-Makefile",
+                    "dest-filename": "Makefile"
+                },
+                {
+                    "type": "patch",
+                    "path": "0001-Fix-pow-being-undeclared.patch"
+                }
+            ]
+        }
+    ]
+}
