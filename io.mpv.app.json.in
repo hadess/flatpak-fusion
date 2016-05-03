@@ -16,35 +16,16 @@
         "--device=dri",
         /* Needs to talk to the network: */
         "--share=network",
-        /* Online accounts support */
-        "--talk-name=org.gnome.OnlineAccounts",
-        /* Tracker */
-        "--talk-name=org.freedesktop.Tracker1",
         /* XXX This sucks */
         "--filesystem=home",
-        /* Avahi */
-        "--system-talk-name=org.freedesktop.Avahi",
-        /* DLNA server */
-        "--talk-name=com.intel.dleyna-server",
         /* Play sounds */
         "--socket=pulseaudio",
         /* Browse user's Videos directory */
         "--filesystem=xdg-videos",
         /* Browse gvfs */
         "--talk-name=org.gtk.vfs", "--talk-name=org.gtk.vfs.*",
-        /* Needed for dconf to work */
-        "--filesystem=xdg-run/dconf", "--filesystem=~/.config/dconf:ro",
-        "--talk-name=ca.desrt.dconf", "--env=DCONF_USER_CONFIG_DIR=.config/dconf",
-        /* screensaver plugin */
-        "--talk-name=org.gnome.ScreenSaver",
-        /* screenshot plugin */
-        "--talk-name=org.gnome.Shell",
-        /* save-file plugin */
-        "--talk-name=org.gnome.Nautilus",
-        /* media-player-keys plugin */
-        "--talk-name=org.gnome.SettingsDaemon",
-        /* im-status plugin */
-        "--talk-name=org.gnome.SessionManager"
+        /* xdg-screensaver */
+        "--talk-name=org.gnome.ScreenSaver"
     ],
     "build-options" : {
         "cflags": "-O2 -g",
