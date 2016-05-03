@@ -4,7 +4,7 @@
 # xdg-app --user remote-add --no-gpg-verify local repo
 # xdg-app --user install local org.freedesktop.Platform.GStreamer.libav 1.4
 
-FILE=net.gstreamer.libav.json
+FILE=`dirname $0`/net.gstreamer.libav.json
 
 APPID=`basename $FILE .json`
 SUBJECT="Nightly build of gst-libav, `date`"
