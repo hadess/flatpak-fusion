@@ -1,0 +1,437 @@
+From e5eef09f54878977e029e6c0831861dd3fa8eb81 Mon Sep 17 00:00:00 2001
+From: Bastien Nocera <hadess@hadess.net>
+Date: Wed, 4 May 2016 22:18:45 +0200
+Subject: [PATCH] Add .desktop file for Linux front-end
+
+---
+ CMakeLists.txt                          |   1 +
+ data/CMakeLists.txt                     |   6 ++++++
+ data/EmulationStation.desktop           |   9 +++++++++
+ data/icons/128x128/EmulationStation.png | Bin 0 -> 2218 bytes
+ data/icons/16x16/EmulationStation.png   | Bin 0 -> 672 bytes
+ data/icons/24x24/EmulationStation.png   | Bin 0 -> 819 bytes
+ data/icons/256x256/EmulationStation.png | Bin 0 -> 5628 bytes
+ data/icons/32x32/EmulationStation.png   | Bin 0 -> 963 bytes
+ data/icons/48x48/EmulationStation.png   | Bin 0 -> 1231 bytes
+ data/icons/64x64/EmulationStation.png   | Bin 0 -> 1396 bytes
+ data/icons/96x96/EmulationStation.png   | Bin 0 -> 1775 bytes
+ data/icons/CMakeLists.txt               |   8 ++++++++
+ 12 files changed, 24 insertions(+)
+ create mode 100644 data/CMakeLists.txt
+ create mode 100644 data/EmulationStation.desktop
+ create mode 100644 data/icons/128x128/EmulationStation.png
+ create mode 100644 data/icons/16x16/EmulationStation.png
+ create mode 100644 data/icons/24x24/EmulationStation.png
+ create mode 100644 data/icons/256x256/EmulationStation.png
+ create mode 100644 data/icons/32x32/EmulationStation.png
+ create mode 100644 data/icons/48x48/EmulationStation.png
+ create mode 100644 data/icons/64x64/EmulationStation.png
+ create mode 100644 data/icons/96x96/EmulationStation.png
+ create mode 100644 data/icons/CMakeLists.txt
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 784c2d0..d55014b 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -193,6 +193,7 @@ set(LIBRARY_OUTPUT_PATH ${dir} CACHE PATH "Build directory" FORCE)
+ #-------------------------------------------------------------------------------
+ # add each component
+ 
++add_subdirectory("data")
+ add_subdirectory("external")
+ add_subdirectory("es-core")
+ add_subdirectory("es-app")
+diff --git a/data/CMakeLists.txt b/data/CMakeLists.txt
+new file mode 100644
+index 0000000..f07ef8c
+--- /dev/null
++++ b/data/CMakeLists.txt
+@@ -0,0 +1,6 @@
++install( FILES EmulationStation.desktop DESTINATION ${DATADIR}/applications/ )
++
++# PNG icons generated with
++# convert es_icon.ico EmulationStation.png
++# for i in 16 24 32 48 64 96 128 256; do for j in EmulationStation-*.png; do file $j | grep "${i} x ${i}" && mkdir icons/${i}x${i}/ && mv $j icons/${i}x${i}/EmulationStation.png ; done ; done
++add_subdirectory("icons")
+diff --git a/data/EmulationStation.desktop b/data/EmulationStation.desktop
+new file mode 100644
+index 0000000..717d8bc
+--- /dev/null
++++ b/data/EmulationStation.desktop
+@@ -0,0 +1,9 @@
++[Desktop Entry]
++Name=EmulationStation
++GenericName=Emulator Front-end
++Comment=Graphical front-end for emulators with controller navigation
++Exec=emulationstation
++Icon=emulationstation
++Terminal=false
++Type=Application
++Categories=Game;Emulator;
+diff --git a/data/icons/128x128/EmulationStation.png b/data/icons/128x128/EmulationStation.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..66cfed274737f1ecf182861e864d9ade00792e8f
+GIT binary patch
+literal 2218
+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
+Z_x23?--hLe*#w3G80eU2ztY6S{sYvu2#5dx
+
+literal 0
+HcmV?d00001
+
+diff --git a/data/icons/16x16/EmulationStation.png b/data/icons/16x16/EmulationStation.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..375279c53c195941c98b41d25f220afe8eb59b0a
+GIT binary patch
+literal 672
+zcmeAS@N?(olHy`uVBq!ia0vp^0wB!63?wyl`GbKJOS+@4BLl<6e(pbstU$g(vPY0F
+z14ES>14Ba#1H&(%P{RubhEf9thF1v;3|2E37{m+a><Y92N<0tn32_C|41UE3WF7=$
+zbA?u<O<q|rYh7r^0@s@90+BV`p%weiU;qFA|Eu?(^mDs1CNFPWzMa9hD6MZn-o!-)
+zN!11^HT+@a3?5m(|NPm1{+d#JHG@-P!Q>?!OE(8p_Xjjg7Yi$9u#5Th_4}C{_X27s
+zyH-zS@-NBjo99>A_v`ncrF%~>2b6X$+Y(UT8Bp9J=9i%!Q(7};b!_jFwC=fieRB;W
+za}DCl`90HAB8z$4Q}&&?{Oa8Yy@bm2o_RcBRSXtETvmZ;Et3j*W`<VvxE6J!^)2KI
+zsbDbjVlWF}a7s$J_3IPRr)(ube!&bf*M408^}zq*Q=kZAlDE4Hzr-$vn?MeGiKnkC
+z`vX=MQ8UhR`-lEOp(UO!jv*44Tl<d-H8}{lh##G3YQUCqwqu>;^EpTV{J;PB!AULt
+zJ<k4DSHC-K@T~JubNnBl)&<8b`5k9Wa&K@9aX%7a<JjrRkhbK4$V(ry>EeqVq{Fss
+zNSUs^DQffUUNz3lop-0@l)oscj=w0+;~vzPTip~aWIRWIn)XgHrx`0I-pE<G`?ma@
+zrFANWR`D{&cb=M^dRKnIrURFss&;N?v^)BHyS?4J>B2IHqGExO%b;4~8c~vxSdwa$
+zT$Bo=7>o=I&2$Y+bq!2Hj0~+zO{@$owGE7{3=C#Ii?Bk`kei>9nO2Eg!;9Sy+JG7u
+NJYD@<);T3K0RVO^|B?Uz
+
+literal 0
+HcmV?d00001
+
+diff --git a/data/icons/24x24/EmulationStation.png b/data/icons/24x24/EmulationStation.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..e3465d3da14266b45886121281416211cbedb8f6
+GIT binary patch
+literal 819
+zcmeAS@N?(olHy`uVBq!ia0vp^5+KaM3?#3wJbMaAv7|ftIx;Y9?C1WI$O_~uBzpw;
+zGB8xBF)%c=FfjZA3N^f7U???UV0e|lz+g3lfkC`r&aOZk1_nl{0G|+7paKTJViaT^
+z2;@3eO_{Ov@PggPlP4}`3o0v`y-qEoJ-Tzj-@pI<|NsBw^*g1MmQBYlOy7Kf(Z9s5
+zbi$v%e_y`)_~6CsJ!h{fr?xEGb?olbmn}=TGI-|9+Pv@n^Vf{_u?%)G3=VM&J_QWU
+z$u)CUGq|KM*vBl`e(3tcrzO*tow$1E!1?P3E&$Pu`1YAQPhEQd`RnepR}*>{E!eW3
+z-!tvxwL2B_)*m=~<-nOs@y%0bY~1_h`;XA}c?@O&3`SlI=0O*3Kb*Vs*zC>w?>&3P
+zXdX0c`w{!RmX~keKX~?X&#6nw5k>YDlcVeUpS*gb5LUqEoUrNWIR^7Ur}WAhYql-e
+zyeGMBM$wd|PURCBO#K-=vM>Dk+zt#J_L3mKU<UJt??2xAa_rtxd!P_wlDE5y;G?a!
+zyTJ0EzOL*KSXo5PILqxH`U9nzJzX3_G|sP`cru8|P{6^M!%a|iZHJNGf-PJuojV@2
+zF)`^q?t1j^|Ng|~=?g3#^p<;+?hT*1E~G_5(a(b~(Z?duQbcfJa*|Qj%t;$F<rW!>
+zoH#BTk@h@^Q!c^oWMZOV(7M-px~D}0Ox7%${7q|SWb;>@N5_`k37X)1WY2!(;0pmM
+z^W7WX&YQldL25xt*{R(f)f@7Cem<DMd@I4yX^qV9$Da06&b+*785_S+>JgJ(bHI_P
+zy^Xc&7Mxtj`u4Ts{M^I5?a{2|^Pb<ePdK-AiGyv?0rme+&+E?(mkYTQ|1a$QzWNBe
+zjh~lpT~{}`pW_pw{lUKYPl@h5-)nLYw9g6r_hbJbM&1kq%iu%oSAij<TH+c}l9E`G
+zYL#4+3Zxi}3=GY54NP?nOhSwdtxQd<3@o(`jI0a{W<HCsLeY?$pOTqYiCe>q-4EJ;
+P8W=oX{an^LB{Ts5WEo?Y
+
+literal 0
+HcmV?d00001
+
+diff --git a/data/icons/256x256/EmulationStation.png b/data/icons/256x256/EmulationStation.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..9e479f651e8e23419b8979b04ccd82606ec836cb
+GIT binary patch
+literal 5628
+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
+Lp;obm{lotOui4V>
+
+literal 0
+HcmV?d00001
+
+diff --git a/data/icons/32x32/EmulationStation.png b/data/icons/32x32/EmulationStation.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..77d0c2692477ea2ee672e26824daf6d01255d11d
+GIT binary patch
+literal 963
+zcmeAS@N?(olHy`uVBq!ia0vp^3LwnE3?yBabR7dyEa{HEjtmSN`?>!lvVtU&J%W50
+z7^>757#dm_7=8hT8eT9klo~KFyh>nTu$sZZAYL$MSD+0817lKvPlzi}0fS#L7Gxd>
+z6tpbvJAC=}gBNeEK6uI#R>c)kF=NZ2yU$*Qcg%OHoc!&_&;S4b?>m2e-i{-T{w1ab
+zJ)gdQXALNwzw;<_Kq-TF-mxpU7w<e0P~GoS(JLBR$>3X*&^h<<tGD3|Qw%ej80=#|
+zeEI5-*UDfQ!(bo7;F-hVl+-YP-NGG*8C+6a3fmc+lk4WLUAE^KgG1c42TvDlKeS-S
+zkp(-C&D?rWE~3P_u>Hrc-%EBKU9j_L)%*?o;Z=G4^V=40x_s}6XiRO#(#;FD>|L;V
+z&&;*k<wEjiZrZow<fRq+PcfJUFc^6;7<)6=M85g>`NNlQi?<yJC~6KU>kO#q_9^WW
+z^~+>)PVlSjJ9hPsc}D%Guiu;sT3Maq_no_HUexE5UFVeF%H@{CU><0hP;~hGl?TsW
+zUcL8-$311n#=Uo+zI^cF_2El5EsOdXtil+)av3Z`TR+{A1O_r^NswPKL*~23B?+%f
+zU;V#5=R8o5G0EHAMfB;7pNoMU_7YEDSM~?2ETU$d<@OK#fzqCyE{-7<r>{;<4?g4|
+z(8kPFWp-slnV<;wrm!5r>i1k?Z(<ML`@g^1)6C`Ax3eFAPP$z=f9CC*XEjg#Kk!f_
+zev)hDwjX@1g`M&&+y6XyDlQ=+#_3<!89C)u)0t3xiHgvNn#Sh?;to2gJ`Y{BV%w)#
+zQHfmptQhJWR^$sDbZc0a7P+N>|B!eVD~EDY^lpx_5~h-ilDpTc)heneE_%L*y_)e?
+zjwR<`jaEiq=^j2_<vxa<zRX({B}tb=0>pWit(fsFDeYS^<8wO+oeQF$xx2lC4jkCz
+zwuWKNtrm`TM<2b;Q0Cc?D12z<P7$-n1&+C@Lbt7VS9knoXJocNpvdiR^Xjp%jqPK(
+zgVpDl;v!D(I-(-I#X>A-<LcMa&9|+6?%CT2`JXo`_f{13{(Q)`E$*x1E{_e*^Cc_!
+z{!ZHY(jxC^QK6HCZ2jMPb*HUsX2+~;V0WGf3}@96*NBpo#FA92<f2p{#b9J$Xr^mm
+zs%u~pVq|D#YGP$zscm3nWneJ#S%ejehTQy=%(P0}8eZ&v&<51N;OXk;vd$@?2>`vo
+Bl%xOv
+
+literal 0
+HcmV?d00001
+
+diff --git a/data/icons/48x48/EmulationStation.png b/data/icons/48x48/EmulationStation.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..22760d79831762f8cc80dfceade1aa99536207f6
+GIT binary patch
+literal 1231
+zcmeAS@N?(olHy`uVBq!ia0vp^1|ZDA3?vioaBc-sEa{HEjtmSN`?>!lvI6-E$sR$z
+z3=CCj3=9n|3=F@3LJcn%7)pT}UnMXwSj}Ky5HFasE6|34f$?a7Plzi}0fS#Lc4X=g
+z6qiqFG05-L&FN+jE*Fcf=ZmP;%4|P(>*4?Z|DCF)ibU6JK7O%u_B!3{j@KVPmCRl%
+z8dH1u-jk(!PcR3RR?J(^A6|9#)&rH)mY458@`YEOync_tr{L_Z`*)tcJaGQ{@;%30
+zD<?Ae7R}jq=;gbQ8;_ig>zvEzU!oabasKuLW`{TiyBG%d3<jsf&)>ca`D8FSCo?$2
+zIpno2*nWt?E#t!NhYW7%n~$Dja7y~~_wSR}@0c87864yP{rfj{{qBOvOA4keEts*|
+zrE2n?GgmeoK3h0tNx_U&>64bpCNwBV6zL{Ze*E(7=da&MeTyCPn$0un|Ni|K-MQe+
+z$Irnnv!`v?Q_wf3pl7B_Zj*plT3qXlQ`hgZ29`0H`7;=KF<1nf6!tq*P1TGoJA3m!
+zvqg|*R_C3^&kmfqbl~je181)+-+jcjsKYwDY2Uf4YSASXGgtC?rk=cZM=ibO_4|(%
+zGgt6?rZJcW=!Rt#Oj<1JmwEZ#V+ON8t&og!H|{tUw2Js<p1bvc!8}mGC($4>M=vsu
+z-8n(bKg%GgS|Or{!8@P9#E-!?n!!Gn!8>o+mD2&hc;qSx@(X6*=>4#cZBxtJL+q3L
+z-T*}zlf2zsgn4$yOapS*OFVsD*&nd7h?;Sh+duRNN`LfpaSZV|{&woiaG^kn_Vp4O
+z%2{4dXJu-3=H^}3QFQh`Qg~W*?HY~g7lW9$)?O6ayylGA|G4|*?^2(|ZDW?Vn)~?U
+z_s+_9p9>Nim=)Q7yPw{WqP6m!z>l!#Q&u{$@t)ViJ*Is$IG(3x?(hDSX_I`SquF(C
+zF4;$YOjczvPOdr+>IyqcBDhwpiE&cbI-+pOo^!<}t$F90gO?}&c{OW?9rv8{30HUB
+zcy*4+s$A|OYoFdVa}B2lIY$mJOFMO~>EF^Yhqco!cPZTo`*8b?M8%JXp?8;e+)A$H
+zn3EgAv(7M{$0c6z!R7<mzhplw5WetL+HjxKE)D*gyLJ2byN6zl`;sZY=^tZ4^Qx-i
+z6FeCz2G6A3%#5@)MJIbQ9pCZqQJ(kFxw}1?%zcAYYCI!+JdW;NaiCoO-h*Zbg%1<l
+zzGYlGZ_aw?$QGFgxpOa?<W4&_lfBo{@`K99$PX4)9&g;){XZ1dDQ>)P(|>G{V8GvB
+znFbO(txn#jwL9k7md{*$^t0Ayy^G?X_}{562w(q{|9IdhH;xx4qF;WHUGV+wrua1-
+z2Vc#KsbTn5Xxn$bdBd{Ynn_*03+C@V_H;VayY$xwr?vh5b@tBp+`pZ5Z#Mk>Bl>ew
+zn&4sa@4x#?!v9O{JL?tnv7B}OlGl?D8`fDg&d)sg<9>bZ@AB$7QD3U$JOYjY(}QY>
+zYeY#(Vo9o1a#1RfVlXl=G}ARO)ip2)F*39=HL)_V)HX1(GBB9=EW!#!LvDUbW?Cg~
+V4KH>-Xaj0s@O1TaS?83{1OOzzBBTHS
+
+literal 0
+HcmV?d00001
+
+diff --git a/data/icons/64x64/EmulationStation.png b/data/icons/64x64/EmulationStation.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..48331b463422811b2effc0c03bac518f563a802b
+GIT binary patch
+literal 1396
+zcmaJ<do<K}6#sfmYKl}-!me!VQAaYKv&o|wGi5NIBa>0ayYfgLlUKw{h*haU-gENW
+zm1IUJk4z*fqL$(ec4jdQ<296>LH5_5`^WA%_ukLB_kKR-+;i`}<?MJy5v~RY04U;Z
+zv91uF`tIB1pjh0LEP_Bj2u(l(z`C<@!v_ZCntryf1OVc60JuR1Knj&^%m5IL1Yni|
+zfcXOeRKkmzT`T~QS$B3I;vfQWjQl^d@&d;8z{n2bAjsE)bF1?kJDDxr*>&xEJQGZ>
+z-lkVQD{b!f&MJ4K7p{C=+uGV17tAV=;<vd{%UZkXm5t<E%+1YjlXDAN0d)53fxLQ-
+zj8l|HTCqdY1L^w4pVM=4&e3&U{W<J*gh!0{%i8Rsm^U-m&*jk`vXnhy!x)tto16R@
+zQRABdr=%Q!4~fXBIGc1IK!csS035=Bjo&BU)IsN9fDHiFUPVtiV^hM|g5LqwpV`zg
+zz~zVEFaOM+ips4t3rgx9;%>+K0PFJ-={l$XGiLy@VFs&Ri4c-h@>n2RZ0Q@ye$u8N
+zoK7pP*@5$YGc+1m@R-@qz8fFd^Jz4u<O#EpLu1yy`ZyAnTg~Yk<n(^bt7%li2gswn
+zz36$>?LDh&e{1-rpe`l>Gw1JnGa&#=avYOA%omhAe+^JBMbEk-7!~euneK`AA_{8}
+zgiFHtMV>&|H$0ZYeDZ@^m~dg)CH}6~xkwr7^L3qlF0?{2Eq8Kuewz)2-SwWFc!wOH
+z$(x=dQd3vHeC19|E86;(H+K=~MF<QjG$XH|wuxEanq9@-V;^+0j8#zoBJ}P<#Mx`W
+z*a2920^8v42SvGh1@B`**H?;ib#w!V%fu2YYH9hWMQQeW^zB+U)RFPEKZ8}5r3{us
+zi9!^ffK%YX<oBEHxMt0F0zlRak3|zno%6Xt9{bRU)HJ5DvqD$Oz2EAnb(++&vXpdX
+zm%-r{*0rwmjEw#9i*0$O!iD0IUWbL6<1Hl<d98=OYORk?_ly`v>e$;_NjB;cSokI8
+zs&Hq5%T?s4AvmPi>!y}l<r8aXXJ@m_z%mR1<P>t|R4wQzn>6<sTvxaU(}I)!mK65a
+z&&9rj7m2T`y^<#%>6@4a9$T6~S|`fxm7l1f_#&<J9uR4jmy=5^U@LCgi}1>!<;!tx
+zg{sCuXyZbaNI^3$VLTyJm0v*ObRS@c9MDe<#LFQRv)JeCvNb<E-SxV_u>V=?^AOJ?
+zd$kHkdcSHL8p!Ll#+;$7JePghgw%R76`I_+6Rj?|NvTkA+OdS8JjPf&x><R>LBXj<
+zO$Wwmm_K@Q?h|*UE_+L$Gaf?CV7P^hG!ynA-I;+WuTVwUtcG`al%^Qbs>bO2d=}4O
+z+m)AAf_FUqVFQ%66x8lkgPGRB)0DU;B8c!|)`YIBk*?1w15JtkrPL`%R3!8-!FMd3
+zqw$IiE^L3VE|2$aRb~{ztYXSImb;r1mTFW}4KAi+ChR{h;kQUc0fcbeMwM5aKp@RB
+zF|iE&5*H@!X*MEo!uW2MiQJ<LqgnaBV}GFb`mM3}G6yxRjFyK?JUAL_9h$L6XWm-8
+zOs%p!P3s7Py_Z_X-`-_#A%&kqtrs^;mSM&Dy@gGS<8zXw?6n_DJ;xHhiQP}!J&fgF
+zeQ_Nnq8);Jdtxxl9}Z(W#9GIkq%c8dvhJqB!R69+^Q~T$)9`O=>WNm8BND~V`~|AA
+zwk{cZJ?$tQDazj`D!|+?A^-wlgfukMN1Ey*O^8N@=B6g*$P;=<BXcA&UqCYdmmu_t
+Y|E0j#{}#-&@KPZGz~daTwHQjuKaHk^fdBvi
+
+literal 0
+HcmV?d00001
+
+diff --git a/data/icons/96x96/EmulationStation.png b/data/icons/96x96/EmulationStation.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..0e744d5c8afb3f37ea5733ba9f622bd4a2668fbf
+GIT binary patch
+literal 1775
+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
+Ze{cZ%e+!m6XOa~HK(r&{8*FF^{{aCOC4T?_
+
+literal 0
+HcmV?d00001
+
+diff --git a/data/icons/CMakeLists.txt b/data/icons/CMakeLists.txt
+new file mode 100644
+index 0000000..806c9ea
+--- /dev/null
++++ b/data/icons/CMakeLists.txt
+@@ -0,0 +1,8 @@
++install( FILES 16x16/EmulationStation.png DESTINATION ${DATADIR}/icons/hicolor/16x16/apps/ )
++install( FILES 24x24/EmulationStation.png DESTINATION ${DATADIR}/icons/hicolor/24x24/apps/ )
++install( FILES 32x32/EmulationStation.png DESTINATION ${DATADIR}/icons/hicolor/32x32/apps/ )
++install( FILES 48x48/EmulationStation.png DESTINATION ${DATADIR}/icons/hicolor/48x48/apps/ )
++install( FILES 64x64/EmulationStation.png DESTINATION ${DATADIR}/icons/hicolor/64x64/apps/ )
++install( FILES 96x96/EmulationStation.png DESTINATION ${DATADIR}/icons/hicolor/96x96/apps/ )
++install( FILES 128x128/EmulationStation.png DESTINATION ${DATADIR}/icons/hicolor/128x128/apps/ )
++install( FILES 256x256/EmulationStation.png DESTINATION ${DATADIR}/icons/hicolor/256x256/apps/ )
+-- 
+2.7.4
+

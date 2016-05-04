@@ -1,0 +1,16 @@
+#!/bin/sh
+
+sh ./gensrclist.sh
+sh ./genfipsrclist.sh
+rm -r Source/Lib* Source/ZLib
+> Source/FreeImage/PluginG3.cpp
+> Source/FreeImage/PluginJXR.cpp
+> Source/FreeImage/PluginJ2K.cpp
+> Source/FreeImage/PluginJP2.cpp
+> Source/FreeImage/J2KHelper.cpp
+> Source/FreeImage/PluginEXR.cpp
+> Source/FreeImage/PluginRAW.cpp
+# CVE 2015-0852
+# See http://pkgs.fedoraproject.org/cgit/rpms/freeimage.git/tree/FreeImage-3.17.0_CVE-2015-0852.patch
+> Source/FreeImage/PluginPCX.cpp
+> Source/FreeImageToolkit/JPEGTransform.cpp

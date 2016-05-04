@@ -10,3 +10,7 @@ io.mpv.app.json: io.mpv.app.json.in Makefile
 
 net.gstreamer.libav.x86_64.xdgapp: net.gstreamer.libav.json
 	./build_gst-libav.sh
+
+# FIXME add to all when it works
+org.emulationstation.app.x86_64.xdgapp: org.emulationstation.app.json
+	./build.sh org.emulationstation.app.json git

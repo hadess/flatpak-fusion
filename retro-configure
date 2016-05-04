@@ -1,0 +1,10 @@
+#!/bin/sh
+
+cat <<EOF >Makefile
+all:
+	\$(MAKE) -f Makefile.libretro
+
+install:
+	install -D -m 0755 *.so /app/lib/libretro/\$(NAME).so
+	install -p -m 0644 *.info /app/lib/libretro/\$(NAME).info
+EOF
