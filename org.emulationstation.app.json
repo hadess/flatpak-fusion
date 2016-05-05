@@ -136,7 +136,7 @@
         },
         {
             "name": "libretro-mupen64plus",
-            "make-install-args": [ "NAME=mupen64plus" ],
+            "make-install-args": [ "-f", "Makefile.local", "NAME=mupen64plus" ],
             "sources": [
                 {
                     "type": "git",

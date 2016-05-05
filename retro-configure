@@ -1,6 +1,16 @@
 #!/bin/sh
 
-cat <<EOF >Makefile
+# If the target already has a Makefile
+if test -f Makefile; then
+	cat <<EOF >Makefile.local
+install:
+	install -D -m 0755 *.so /app/lib/libretro/\$(NAME).so
+	install -p -m 0644 *.info /app/lib/libretro/\$(NAME).info
+EOF
+
+# If the target uses the common Makefile.libretro
+else
+	cat <<EOF >Makefile
 all:
 	\$(MAKE) -f Makefile.libretro
 
@@ -8,3 +18,4 @@ install:
 	install -D -m 0755 *.so /app/lib/libretro/\$(NAME).so
 	install -p -m 0644 *.info /app/lib/libretro/\$(NAME).info
 EOF
+fi
