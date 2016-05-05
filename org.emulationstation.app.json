@@ -154,6 +154,15 @@
             ]
         },
         {
+            "name": "retroarch",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/libretro/RetroArch.git"
+                }
+            ]
+        },
+        {
             "name": "EmulationStation",
             "cmake": true,
             "sources": [
