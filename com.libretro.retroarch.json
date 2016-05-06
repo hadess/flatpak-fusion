@@ -244,6 +244,20 @@
             ]
         },
         {
+            "name": "retroarch-joypad-autoconfig",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/libretro/retroarch-joypad-autoconfig.git"
+                },
+                {
+                    "type": "file",
+                    "path": "retro-joypad-autoconfig-configure",
+                    "dest-filename": "configure"
+                }
+            ]
+        },
+        {
             "name": "retroarch",
             "post-install": [
                 "mkdir -p /app/share/icons/hicolor/scalable/apps/",

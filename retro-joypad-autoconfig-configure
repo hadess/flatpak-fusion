@@ -1,0 +1,10 @@
+#!/bin/sh
+
+cat <<EOF >Makefile
+all:
+	@echo "Nothing to make"
+
+install:
+	mkdir -p /app/etc/retroarch/joypad/
+	cp -ar udev/*.cfg /app/etc/retroarch/joypad/
+EOF
