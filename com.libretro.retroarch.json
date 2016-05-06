@@ -97,6 +97,63 @@
             ]
         },
         {
+            "name": "libretro-stella",
+            "make-install-args": [ "-f", "Makefile.local", "NAME=stella" ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/libretro/stella-libretro.git"
+                },
+                {
+                    "type": "file",
+                    "path": "retro-configure",
+                    "dest-filename": "configure"
+                },
+                {
+                    "type": "file",
+                    "path": "stella_libretro.info"
+                }
+            ]
+        },
+        {
+            "name": "libretro-prosystem",
+            "make-install-args": [ "-f", "Makefile.local", "NAME=prosystem" ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/libretro/prosystem-libretro.git"
+                },
+                {
+                    "type": "file",
+                    "path": "retro-configure",
+                    "dest-filename": "configure"
+                },
+                {
+                    "type": "file",
+                    "path": "prosystem_libretro.info"
+                }
+            ]
+        },
+        {
+            "name": "libretro-nestopia",
+            "make-install-args": [ "NAME=nestopia" ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/libretro/nestopia.git"
+                },
+                {
+                    "type": "file",
+                    "path": "retro-configure",
+                    "dest-filename": "configure"
+                },
+                {
+                    "type": "file",
+                    "path": "nestopia_libretro.info"
+                }
+            ]
+        },
+        {
             "name": "libretro-genesis_plus_gx",
             "make-install-args": [ "NAME=genesis_plus_gx" ],
             "sources": [
@@ -116,6 +173,25 @@
             ]
         },
         {
+            "name": "libretro-snes9x_next",
+            "make-install-args": [ "-f", "Makefile.local", "NAME=snes9x_next" ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/libretro/snes9x-next.git"
+                },
+                {
+                    "type": "file",
+                    "path": "retro-configure",
+                    "dest-filename": "configure"
+                },
+                {
+                    "type": "file",
+                    "path": "snes9x_next_libretro.info"
+                }
+            ]
+        },
+        {
             "name": "libretro-mupen64plus",
             "make-install-args": [ "-f", "Makefile.local", "NAME=mupen64plus" ],
             "sources": [
@@ -131,6 +207,25 @@
                 {
                     "type": "file",
                     "path": "mupen64plus_libretro.info"
+                }
+            ]
+        },
+        {
+            "name": "libretro-fba",
+            "make-install-args": [ "NAME=fba" ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/libretro/libretro-fba.git"
+                },
+                {
+                    "type": "file",
+                    "path": "retro-configure",
+                    "dest-filename": "configure"
+                },
+                {
+                    "type": "file",
+                    "path": "fba_libretro.info"
                 }
             ]
         },

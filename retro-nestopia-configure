@@ -1,27 +1,5 @@
 #!/bin/sh
 
-PWD=$(pwd)
-SELF=$(basename $PWD)
-
-# Hack for nestopia
-if [[ $SELF = *"nestopia"* ]] ; then
-	cat <<EOF >Makefile
-all:
-	\$(MAKE) -C libretro all
-
-install:
-	install -D -m 0755 libretro/*.so /app/lib/libretro/\$(NAME).so
-	install -p -m 0644 *.info /app/lib/libretro/\$(NAME).info
-EOF
-	exit 0
-fi
-
-# Hack for fba
-if [[ $SELF = *"fba"* ]] ; then
-	rm -f makefile
-	mv makefile.libretro Makefile.libretro
-fi
-
 # If the target already has a Makefile
 if test -f Makefile; then
 	cat <<EOF >Makefile.local
