@@ -1,0 +1,13 @@
+#!/bin/sh
+
+sed -i \
+    's|^# libretro_directory.*|libretro_directory = "/usr/libexec/libretro"|;
+     s|^# libretro_info_path.*|libretro_info_path = "/usr/libexec/libretro"|;
+     s|^# menu_driver.*|menu_driver = "xmb"|;
+     s|^# assets_directory.*|assets_directory = "/usr/share/retroarch/assets/"|;
+     s|^# joypad_autoconfig_dir.*|joypad_autoconfig_dir = "/etc/retroarch/joypad"|' \
+/app/etc/retroarch.cfg
+
+sed -i \
+    's|^Exec=retroarch|Exec=retroarch -f|' \
+/app/share/applications/retroarch.desktop

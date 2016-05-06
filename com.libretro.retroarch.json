@@ -1,11 +1,11 @@
 {
-    "app-id": "org.emulationstation.app",
+    "app-id": "com.libretro.retroarch",
     "runtime": "org.freedesktop.Platform",
     "runtime-version": "1.4",
     "sdk": "org.freedesktop.Sdk",
-    "rename-desktop-file": "EmulationStation.desktop",
-    "rename-icon": "EmulationStation",
-    "command": "emulationstation",
+    "rename-desktop-file": "retroarch.desktop",
+    "rename-icon": "retroarch",
+    "command": "retroarch",
     "separate-locales": false,
     "finish-args": [
         /* X11 + XShm access */
@@ -116,25 +116,6 @@
             ]
         },
         {
-            "name": "libretro-mame",
-            "make-install-args": [ "NAME=mame" ],
-            "sources": [
-                {
-                    "type": "git",
-                    "url": "https://github.com/libretro/mame.git"
-                },
-                {
-                    "type": "file",
-                    "path": "retro-configure",
-                    "dest-filename": "configure"
-                },
-                {
-                    "type": "file",
-                    "path": "mame_libretro.info"
-                }
-            ]
-        },
-        {
             "name": "libretro-mupen64plus",
             "make-install-args": [ "-f", "Makefile.local", "NAME=mupen64plus" ],
             "sources": [
@@ -154,25 +135,36 @@
             ]
         },
         {
-            "name": "retroarch",
+            "name": "retroarch-assets",
             "sources": [
                 {
                     "type": "git",
-                    "url": "https://github.com/libretro/RetroArch.git"
+                    "url": "https://github.com/libretro/retroarch-assets.git"
+                },
+                {
+                    "type": "file",
+                    "path": "retro-assets-configure",
+                    "dest-filename": "configure"
                 }
             ]
         },
         {
-            "name": "EmulationStation",
-            "cmake": true,
+            "name": "retroarch",
+            "post-install": [
+                "mkdir -p /app/share/icons/hicolor/scalable/apps/",
+                "mv /app/share/pixmaps/retroarch.svg /app/share/icons/hicolor/scalable/apps/",
+                "rmdir /app/share/pixmaps/",
+                "./update-configuration.sh"
+            ],
             "sources": [
                 {
                     "type": "git",
-                    "url": "https://github.com/Aloshi/EmulationStation.git"
+                    "url": "https://github.com/libretro/RetroArch.git"
                 },
                 {
-                    "type": "patch",
-                    "path": "0001-Add-.desktop-file-for-Linux-front-end.patch"
+                    "type": "file",
+                    "path": "retroarch-update-configuration",
+                    "dest-filename": "update-configuration.sh"
                 }
             ]
         }

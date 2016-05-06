@@ -1,0 +1,10 @@
+#!/bin/sh
+
+cat <<EOF >Makefile
+all:
+	@echo "Nothing to make"
+
+install:
+	mkdir -p /app/share/retroarch/assets/
+	cp -ar * /app/share/retroarch/assets/
+EOF
