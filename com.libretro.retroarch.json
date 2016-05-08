@@ -154,6 +154,25 @@
             ]
         },
         {
+            "name": "libretro-beetle-pce-fast-libretro",
+            "make-install-args": [ "NAME=beetle-pce-fast-libretro" ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/libretro/beetle-pce-fast-libretro.git"
+                },
+                {
+                    "type": "file",
+                    "path": "retro-configure",
+                    "dest-filename": "configure"
+                },
+                {
+                    "type": "file",
+                    "path": "beetle-pce-fast-libretro_libretro.info"
+                }
+            ]
+        },
+        {
             "name": "libretro-genesis_plus_gx",
             "make-install-args": [ "NAME=genesis_plus_gx" ],
             "sources": [
