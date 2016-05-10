@@ -155,7 +155,7 @@
         },
         {
             "name": "libretro-beetle-pce-fast-libretro",
-            "make-install-args": [ "NAME=beetle-pce-fast-libretro" ],
+            "make-install-args": [ "-f", "Makefile.local", "NAME=beetle-pce-fast-libretro" ],
             "sources": [
                 {
                     "type": "git",
