@@ -1,8 +1,8 @@
 #!/bin/sh
 
 # Install with:
-# xdg-app --user remote-add --no-gpg-verify local repo
-# xdg-app --user install local org.freedesktop.Platform.GStreamer.libav 1.4
+# flatpak --user remote-add --no-gpg-verify local repo
+# flatpak --user install local org.freedesktop.Platform.GStreamer.libav 1.4
 
 FILE=`dirname $0`/net.gstreamer.libav.json
 
@@ -13,7 +13,7 @@ BRANCH=1.4
 
 echo ========== Building $APPID ================
 rm -rf runtime
-xdg-app-builder --ccache --repo=repo --build-only --subject="${SUBJECT}" ${EXPORT_ARGS-} runtime $FILE
+flatpak-builder --ccache --repo=repo --build-only --subject="${SUBJECT}" ${EXPORT_ARGS-} runtime $FILE
 cat << EOF > runtime/metadata
 [Runtime]
 name=$NAME
@@ -28,6 +28,6 @@ if [ ! -d repo ] ; then
     ostree  init --mode=archive-z2 --repo=repo
 fi
 ostree commit --repo=repo --owner-uid=0 --owner-gid=0 --no-xattrs --branch=runtime/org.freedesktop.Platform.GStreamer.libav/x86_64/$BRANCH --subject="${SUBJECT}" runtime
-xdg-app build-update-repo repo
-xdg-app build-finish runtime
-xdg-app build-bundle --runtime repo/ $APPID.x86_64.xdgapp $NAME $BRANCH
+flatpak build-update-repo repo
+flatpak build-finish runtime
+flatpak build-bundle --runtime repo/ $APPID.x86_64.xdgapp $NAME $BRANCH
