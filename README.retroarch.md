@@ -1,28 +1,17 @@
-This is a set of rules for the retroarch cores to be added to the RetroArch
-or gnome-games manifests.
 
-Gathered from:
-https://github.com/RetroPie/RetroPie-Setup/wiki/Supported-Systems
+See here:
+https://wiki.gnome.org/Design/Playground/Games/LibretroCores
+for a set of rules explaining selection of cores.
 
-Requirements:
-- Portable consoles go in the portable version of retroarch, living room ones, into the living room version, PC front-end can handle both
-- No BIOS needed, or the BIOS needs to be available by other ways than warez and soldering. The NeoGeo BIOS is shipped with Linux versions of the games (which include an emulator) for example.
-- No computer cores that would require a keyboard in either console version
-- No non-libretro cores that would require reconfiguring the joypads (or worse!)
-- No single game ports, those should be installed as an "app", not as a data file that the front-end would handle
+Also note that portable consoles go in the portable version of
+retroarch, living room ones, into the living room version.
 
 console version of retroarch
 ----------------------------
 
-- stella-libretro (Atari 2600)
-- prosystem-libretro (Atari 7200)
-- nestopia (NES)
-- beetle-pce-fast-libretro (PC Engine, only needs a BIOS for CD games)
-- Genesis-Plus-GX (MegaDrive, Master System)
 - snes9x-next (SNES)
 - mupen64plus-libretro (N64)
-- libretro-mame
-- libretro-fba (NeoGeo, BIOS is available with games)
+- libretro-fba (NeoGeo, BIOS is available with games) or MAME?
 
 = Not shipped =
 - DreamCast needs a BIOS
