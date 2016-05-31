@@ -1,7 +1,7 @@
-A collection of xdg-app definitions
+A collection of flatpak definitions
 -----------------------------------
 
-With xdg-app-builder and dependencies installed, launch "make"
+With flatpak-builder and dependencies installed, launch "make"
 to build the bundles.
 
 Included apps and runtimes:

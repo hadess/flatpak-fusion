@@ -1,4 +1,5 @@
 .xdg-app-builder
+.flatpak-builder
 app
 repo
 *.xdgapp
