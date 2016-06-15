@@ -1,3 +1,5 @@
+.NOTPARALLEL:
+
 MPV_VERSION = 0.17.0
 
 all: io.mpv.app.x86_64.xdgapp net.gstreamer.libav.x86_64.xdgapp com.libretro.retroarch.x86_64.xdgapp
