@@ -103,6 +103,7 @@
                     "path": "mpv-Makefile",
                     "dest-filename": "Makefile"
                 },
+                /* https://github.com/mpv-player/mpv/issues/3053 */
                 {
                     "type": "patch",
                     "path": "0001-Fix-pow-being-undeclared.patch"
