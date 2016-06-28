@@ -81,7 +81,6 @@
                     "url": "https://github.com/mpv-player/mpv/archive/v@VERSION@.tar.gz",
                     "sha256": "602cd2b0f5fc7e43473234fbb96e3f7bbb6418f15eb8fa720d9433cce31eba6e"
                 },
-                /* Issue 146 */
                 {
                     "type": "file",
                     "url": "https://waf.io/waf-1.8.21",
@@ -89,13 +88,8 @@
                     "dest-filename": "waf"
                 },
                 {
-                    "type": "file",
-                    "path": "waf-1.8.21",
-                    "dest-filename": "waf"
-                },
-                {
-                    "type": "file",
-                    "path": "mpv-configure",
+                    "type": "script",
+                    "commands": ["chmod +x waf", "./waf configure \"$@\""],
                     "dest-filename": "configure"
                 },
                 {
