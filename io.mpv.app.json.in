@@ -79,7 +79,7 @@
                 {
                     "type": "archive",
                     "url": "https://github.com/mpv-player/mpv/archive/v@VERSION@.tar.gz",
-                    "sha256": "602cd2b0f5fc7e43473234fbb96e3f7bbb6418f15eb8fa720d9433cce31eba6e"
+                    "sha256": "@MPV_SHA256SUM@"
                 },
                 {
                     "type": "file",
