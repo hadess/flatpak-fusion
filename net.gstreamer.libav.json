@@ -8,11 +8,10 @@
         "cflags": "-O2 -g",
         "cxxflags": "-O2 -g"
     },
-    "cleanup": [ "/include", "/share/bash-completion" ],
+    "cleanup": [ "/lib/gstreamer-1.0/*.la" ],
     "modules": [
         {
             "name": "gst-libav",
-            "cleanup": [ "/bin/*", "/lib/peas-demo" ],
             "sources": [
                 {
                     "type": "git",
