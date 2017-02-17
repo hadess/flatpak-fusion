@@ -3,7 +3,7 @@
 FILE=$1
 VERSION=$2
 
-APPID=`basename $FILE .json`
+APPID=`grep -Po '(?<="id": ")[^"]*' $FILE`
 
 echo ========== Building $APPID ================
 rm -rf app
