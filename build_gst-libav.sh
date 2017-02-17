@@ -30,4 +30,4 @@ fi
 ostree commit --repo=repo --owner-uid=0 --owner-gid=0 --no-xattrs --branch=runtime/org.freedesktop.Platform.GStreamer.libav/x86_64/$BRANCH --subject="${SUBJECT}" runtime
 flatpak build-update-repo repo
 flatpak build-finish runtime
-flatpak build-bundle --runtime repo/ $APPID.x86_64.xdgapp $NAME $BRANCH
+flatpak build-bundle --runtime repo/ $APPID.x86_64.flatpak $NAME $BRANCH

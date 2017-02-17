@@ -3,4 +3,5 @@
 app
 repo
 *.xdgapp
+*.flatpak
 io.mpv.app.json
