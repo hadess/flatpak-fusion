@@ -12,7 +12,7 @@ io.mpv.app.json: io.mpv.app.json.in Makefile
 	cat io.mpv.app.json.in | sed 's,@VERSION@,$(MPV_VERSION),' | sed 's,@MPV_SHA256SUM@,$(MPV_SHA256SUM),' > $@
 
 net.gstreamer.libav.x86_64.flatpak: net.gstreamer.libav.json Makefile
-	./build_gst-libav.sh
+	./build.sh net.gstreamer.libav.json
 
 com.libretro.retroarch.x86_64.flatpak: com.libretro.retroarch.json Makefile
 	./build.sh com.libretro.retroarch.json git

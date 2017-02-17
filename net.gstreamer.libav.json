@@ -2,6 +2,7 @@
     "id": "org.freedesktop.Platform.GStreamer.libav",
     "runtime": "org.freedesktop.Platform",
     "runtime-version": "1.4",
+    "build-extension": true,
     "sdk": "org.freedesktop.Sdk",
     "tags": ["nightly"],
     "build-options" : {
