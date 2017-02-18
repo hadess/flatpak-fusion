@@ -13,6 +13,8 @@
     "modules": [
         {
             "name": "gst-libav",
+            "make-args": ["plugindir=/usr/lib/extensions/gstreamer-1.0/libav"],
+            "make-install-args": ["plugindir=/usr/lib/extensions/gstreamer-1.0/libav"],
             "sources": [
                 {
                     "type": "git",
