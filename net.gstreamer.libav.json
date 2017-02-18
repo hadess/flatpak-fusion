@@ -9,12 +9,12 @@
         "cflags": "-O2 -g",
         "cxxflags": "-O2 -g"
     },
-    "cleanup": [ "/lib/gstreamer-1.0/*.la" ],
     "modules": [
         {
             "name": "gst-libav",
             "make-args": ["plugindir=/usr/lib/extensions/gstreamer-1.0/libav"],
             "make-install-args": ["plugindir=/usr/lib/extensions/gstreamer-1.0/libav"],
+            "cleanup": [ "*.la" ],
             "sources": [
                 {
                     "type": "git",
