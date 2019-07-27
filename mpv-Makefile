@@ -1,5 +1,0 @@
-all:
-	./waf build
-
-install:
-	./waf install

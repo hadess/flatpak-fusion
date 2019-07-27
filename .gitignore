@@ -1,7 +1,0 @@
-.xdg-app-builder
-.flatpak-builder
-app
-repo
-*.xdgapp
-*.flatpak
-io.mpv.app.json
